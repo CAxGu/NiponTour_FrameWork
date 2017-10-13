@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<functions>
+    <function>
+        <name>form_travels</name>
+        <uri>form_travels</uri>
+    </function>
+    <function>
+        <name>results_travels</name>
+        <uri>results_travels</uri>
+    </function>
+    <function>
+        <name>upload_travels</name>
+        <uri>upload_travels</uri>
+    </function>
+    <function>
+        <name>alta_travels</name>
+        <uri>alta_travels</uri>
+    </function>
+    <function>
+        <name>delete_travels</name>
+        <uri>delete_travels</uri>
+    </function>
+    <function>
+        <name>load_travels</name>
+        <uri>load_travels</uri>
+    </function>
+    <function>
+        <name>load_data_travels</name>
+        <uri>load_data_travels</uri>
+    </function>
+    <function>
+        <name>load_countries_travels</name>
+        <uri>load_countries_travels</uri>
+    </function>
+    <function>
+        <name>load_provinces_travels</name>
+        <uri>load_provinces_travels</uri>
+    </function>
+    <function>
+        <name>load_towns_travels</name>
+        <uri>load_towns_travels</uri>
+    </function>
+</functions>
