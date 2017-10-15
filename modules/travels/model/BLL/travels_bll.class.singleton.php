@@ -1,12 +1,14 @@
 <?php
 
-class travel_bll {
+require (MODEL_PATH . "db.class.singleton.php");
+
+class travels_bll {
     private $dao;
     private $db;
     static $_instance;
 
     private function __construct() {
-        $this->dao = travel_dao::getInstance();
+        $this->dao = travels_dao::getInstance();
         $this->db = Db::getInstance();
     }
 
@@ -16,8 +18,8 @@ class travel_bll {
         return self::$_instance;
     }
 
-    public function create_travel_BLL($arrArgument) {
-        return $this->dao->create_travel_DAO($this->db, $arrArgument);
+    public function create_travels_BLL($arrArgument) {
+        return $this->dao->create_travels_DAO($this->db, $arrArgument);
     }
 
     public function obtain_countries_BLL($url){

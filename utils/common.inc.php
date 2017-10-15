@@ -1,26 +1,34 @@
 <?php
-    function loadModel($model_path, $model_name, $function, $arrArgument = '') {
+     function loadModel($model_path, $model_name, $function, $arrArgument = '') {
+
+   
         $model = $model_path . $model_name . '.class.singleton.php';
-
+      
         if (file_exists($model)) {
-            include_once($model);
-
+         
+            include_once($model);           
+          
             $modelClass = $model_name;
+
             if (!method_exists($modelClass, $function)){
-                die($function . ' function not found in Model ' . $model_name);
+                //die($function . ' function not found in Model ' . $model_name);
+                throw new Exception();
             }
-            
+         
             $obj = $modelClass::getInstance();
             if (isset($arrArgument)) {
-                return $obj->$function($arrArgument);
+               // return $obj->$function($arrArgument);
+               return call_user_func(array($obj,$function),$arrArgument);
             }
         } else {
-            die($model_name . ' Model Not Found under Model Folder');
+            //die($model_name . ' Model Not Found under Model Folder');
+            throw new Exception();
         }
     }
 
 //load view
 function loadView($rutaVista = '', $templateName = '', $arrPassValue = '') {
+
     $view_path = $rutaVista . $templateName;
     $arrData = '';
 

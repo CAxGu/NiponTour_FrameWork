@@ -23,6 +23,7 @@ session_start();
 $_SESSION['module'] = "";
 
 function handlerRouter() {
+
     if (!empty($_GET['module'])) {
         $URI_module = $_GET['module'];
     } else {
@@ -43,9 +44,11 @@ function handlerModule($URI_module, $URI_function) {
 
     foreach ($modules->module as $module) {
         if (($URI_module === (String) $module->uri)) {
+
             $exist = true;
 
             $path = MODULES_PATH . $URI_module . "/controller/controller_" . $URI_module . ".class.php";
+            
             if (file_exists($path)) {
                 require_once($path);
                 $controllerClass = "controller_" . $URI_module;
@@ -71,6 +74,7 @@ function handlerModule($URI_module, $URI_function) {
 }
 
 function handlerFunction($module, $obj, $URI_function) {
+
     $functions = simplexml_load_file(MODULES_PATH . $module . "/resources/functions.xml");
     $exist = false;
 

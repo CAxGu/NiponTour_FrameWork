@@ -8,8 +8,8 @@
         <name>travels</name>
         <uri>travels</uri>
     </module>
-    <!--<module>
+    <module>
         <name>products</name>
         <uri>products</uri>
-    </module>-->
+    </module>
 </modules>

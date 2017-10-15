@@ -1,10 +1,10 @@
 <?php
 //SITE_ROOT
-$path = $_SERVER['DOCUMENT_ROOT'] . '/2ndoDAW/NiponTour/';
+$path = $_SERVER['DOCUMENT_ROOT'] . '/2ndoDAW/NiponTour_FrameWork/';
 define('SITE_ROOT', $path);
 
 //SITE_PATH
-define('SITE_PATH', 'https://' . $_SERVER['HTTP_HOST'] . '/2ndoDAW/NiponTour/');
+define('SITE_PATH', 'http://' . $_SERVER['HTTP_HOST'] . '/2ndoDAW/NiponTour_FrameWork/');
 
 //CSS
 define('CSS_PATH', SITE_PATH . 'view/css/');
@@ -45,7 +45,7 @@ define('BLL_TRAVELS', SITE_ROOT . 'modules/travels/model/BLL/');
 define('MODEL_TRAVELS', SITE_ROOT . 'modules/travels/model/model/');
 define('TRAVELS_JS_PATH', SITE_PATH . 'modules/travels/view/js/');
 
-/*
+
 //model products
 define('UTILS_PRODUCTS', SITE_ROOT . 'modules/products/utils/');
 define('PRODUCTS_JS_LIB_PATH', SITE_PATH . 'modules/products/view/lib/');
@@ -54,7 +54,7 @@ define('MODEL_PATH_PRODUCTS', SITE_ROOT . 'modules/products/model/');
 define('DAO_PRODUCTS', SITE_ROOT . 'modules/products/model/DAO/');
 define('BLL_PRODUCTS', SITE_ROOT . 'modules/products/model/BLL/');
 define('MODEL_PRODUCTS', SITE_ROOT . 'modules/products/model/model/');
-*/
+
 
 //amigables
 define('URL_AMIGABLES', TRUE);

@@ -1,5 +1,5 @@
 function load_travels() {
-    var jqxhr = $.get("modules/travels/controller/controller_travels.class.php?load=true", function (data) {
+    var jqxhr = $.POST("../../travels/load_travels/",{'load':true}, function (data) {
         var json = JSON.parse(data);
         console.log(json);
         pintar_travel(json);

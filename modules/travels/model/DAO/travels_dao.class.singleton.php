@@ -1,5 +1,5 @@
 <?php
-class travel_dao {
+class travels_dao {
     static $_instance;
 
     private function __construct() {
@@ -13,7 +13,7 @@ class travel_dao {
         return self::$_instance;
     }
 
-    public function create_travel_DAO($db, $arrArgument) {
+    public function create_travels_DAO($db, $arrArgument) {
 
         $idviaje = $arrArgument['idviaje'];
         $destino = $arrArgument['destino'];
@@ -40,7 +40,7 @@ class travel_dao {
                 $visita = 1;
         }
  
-        $sql = "INSERT INTO travels (idviaje, pais, provincia, ciudad, precio, oferta,"
+        $sql = "INSERT INTO travelss (idviaje, pais, provincia, ciudad, precio, oferta,"
                 . " tipo, f_sal, f_lleg, avatar"
                 . " ) VALUES ('$idviaje', '$destino', '$provincia', '$ciudad', '$precio',"
                 . " '$oferta', '$tipo', '$f_sal', '$f_lleg', '$avatar')";

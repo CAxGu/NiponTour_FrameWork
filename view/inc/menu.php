@@ -44,23 +44,23 @@
                 <div class="collapse navbar-collapse navbar-right">
                     <ul class="nav navbar-nav">
                         <li class="
-                        <?php if($_GET['module'] === 'homepage')
+                        <?php if($_GET['module'] === 'main')
                                  echo'active';
                               else
                                  echo 'deactivate';
                         ?>"><a href="<?php amigable('?module=main');?>">Home</a></li>
-                        <li class="
+                        <li class=" 
                         <?php if($_GET['module'] === 'about-us')
                                  echo'active';
                               else
                                  echo 'deactivate';
                         ?>"><a href="index.php?module=about-us">About Us</a></li>
                         <li class="
-                        <?php if($_GET['module'] === 'services')
+                        <?php if($_GET['module'] === 'products')
                                  echo'active';
                               else
                                  echo 'deactivate';
-                        ?>"><a href="index.php?module=services">Services</a></li>
+                        ?>"><a href="<?php amigable('?module=products&function=list_products'); ?>">Products</a></li>
                         <li class="
                         <?php if($_GET['module'] === 'travels')
                                  echo'active';

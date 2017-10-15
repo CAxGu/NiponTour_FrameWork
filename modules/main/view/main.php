@@ -7,7 +7,7 @@
             </ol>
             <div class="carousel-inner">
 
-                <div class="item active" style="background-image: url(view/img/slider/bg1.jpg)">
+                <div class="item active" style="background-image: url(<?php echo SITE_PATH ?>view/img/slider/bg1.jpg)">
                     <div class="container">
                         <div class="row slide-margin">
                             <div class="col-sm-6">
@@ -20,7 +20,7 @@
 
                             <div class="col-sm-6 hidden-xs animation animated-item-4">
                                 <div class="slider-img">
-                                    <img src="view/img/slider/img1.png" class="img-responsive">
+                                    <img src="<?php echo SITE_PATH ?>view/img/slider/img1.png" class="img-responsive">
                                 </div>
                             </div>
 
@@ -28,7 +28,7 @@
                     </div>
                 </div><!--/.item-->
 
-                <div class="item" style="background-image: url(view/img/slider/bg2.jpg)">
+                <div class="item" style="background-image: url(<?php echo SITE_PATH ?>view/img/slider/bg2.jpg)">
                     <div class="container">
                         <div class="row slide-margin">
                             <div class="col-sm-6">
@@ -41,7 +41,7 @@
 
                             <div class="col-sm-6 hidden-xs animation animated-item-4">
                                 <div class="slider-img">
-                                    <img src="view/img/slider/img2.png" class="img-responsive">
+                                    <img src="<?php echo SITE_PATH ?>view/img/slider/img2.png" class="img-responsive">
                                 </div>
                             </div>
 
@@ -49,7 +49,7 @@
                     </div>
                 </div><!--/.item-->
 
-                <div class="item" style="background-image: url(view/img/slider/bg3.jpg)">
+                <div class="item" style="background-image: url(<?php echo SITE_PATH ?>view/img/slider/bg3.jpg)">
                     <div class="container">
                         <div class="row slide-margin">
                             <div class="col-sm-6">
@@ -61,7 +61,7 @@
                             </div>
                             <div class="col-sm-6 hidden-xs animation animated-item-4">
                                 <div class="slider-img">
-                                    <img src="view/img/slider/img3.png" class="img-responsive">
+                                    <img src="<?php echo SITE_PATH ?>view/img/slider/img3.png" class="img-responsive">
                                 </div>
                             </div>
                         </div>
@@ -148,12 +148,12 @@
             <div class="row">
                 <div class="col-xs-12 col-sm-4 col-md-3">
                     <div class="recent-work-wrap">
-                        <img class="img-responsive" src="view/img/portfolio/recent/item1.png" alt="">
+                        <img class="img-responsive" src="<?php echo SITE_PATH ?>view/img/portfolio/recent/item1.png" alt="">
                         <div class="overlay">
                             <div class="recent-work-inner">
                                 <h3><a href="#">Business theme</a> </h3>
                                 <p>There are many variations of passages of Lorem Ipsum available, but the majority</p>
-                                <a class="preview" href="view/img/portfolio/full/item1.png" rel="prettyPhoto"><i class="fa fa-eye"></i> View</a>
+                                <a class="pre<?php echo SITE_PATH ?>view" href="<?php echo SITE_PATH ?>view/img/portfolio/full/item1.png" rel="prettyPhoto"><i class="fa fa-eye"></i> <?php echo SITE_PATH ?>View</a>
                             </div> 
                         </div>
                     </div>
@@ -161,12 +161,12 @@
 
                 <div class="col-xs-12 col-sm-4 col-md-3">
                     <div class="recent-work-wrap">
-                        <img class="img-responsive" src="view/img/portfolio/recent/item2.png" alt="">
+                        <img class="img-responsive" src="<?php echo SITE_PATH ?>view/img/portfolio/recent/item2.png" alt="">
                         <div class="overlay">
                             <div class="recent-work-inner">
                                 <h3><a href="#">Business theme</a></h3>
                                 <p>There are many variations of passages of Lorem Ipsum available, but the majority</p>
-                                <a class="preview" href="view/img/portfolio/full/item2.png" rel="prettyPhoto"><i class="fa fa-eye"></i> View</a>
+                                <a class="pre<?php echo SITE_PATH ?>view" href="<?php echo SITE_PATH ?>view/img/portfolio/full/item2.png" rel="prettyPhoto"><i class="fa fa-eye"></i> <?php echo SITE_PATH ?>View</a>
                             </div> 
                         </div>
                     </div>
@@ -174,12 +174,12 @@
 
                 <div class="col-xs-12 col-sm-4 col-md-3">
                     <div class="recent-work-wrap">
-                        <img class="img-responsive" src="view/img/portfolio/recent/item3.png" alt="">
+                        <img class="img-responsive" src="<?php echo SITE_PATH ?>view/img/portfolio/recent/item3.png" alt="">
                         <div class="overlay">
                             <div class="recent-work-inner">
                                 <h3><a href="#">Business theme </a></h3>
                                 <p>There are many variations of passages of Lorem Ipsum available, but the majority</p>
-                                <a class="preview" href="view/img/portfolio/full/item3.png" rel="prettyPhoto"><i class="fa fa-eye"></i> View</a>
+                                <a class="pre<?php echo SITE_PATH ?>view" href="<?php echo SITE_PATH ?>view/img/portfolio/full/item3.png" rel="prettyPhoto"><i class="fa fa-eye"></i> <?php echo SITE_PATH ?>View</a>
                             </div> 
                         </div>
                     </div>
@@ -187,12 +187,12 @@
 
                 <div class="col-xs-12 col-sm-4 col-md-3">
                     <div class="recent-work-wrap">
-                        <img class="img-responsive" src="view/img/portfolio/recent/item4.png" alt="">
+                        <img class="img-responsive" src="<?php echo SITE_PATH ?>view/img/portfolio/recent/item4.png" alt="">
                         <div class="overlay">
                             <div class="recent-work-inner">
                                 <h3><a href="#">Business theme </a></h3>
                                 <p>There are many variations of passages of Lorem Ipsum available, but the majority</p>
-                                <a class="preview" href="view/img/portfolio/full/item4.png" rel="prettyPhoto"><i class="fa fa-eye"></i> View</a>
+                                <a class="pre<?php echo SITE_PATH ?>view" href="<?php echo SITE_PATH ?>view/img/portfolio/full/item4.png" rel="prettyPhoto"><i class="fa fa-eye"></i> <?php echo SITE_PATH ?>View</a>
                             </div> 
                         </div>
                     </div>
@@ -200,12 +200,12 @@
                 
                 <div class="col-xs-12 col-sm-4 col-md-3">
                     <div class="recent-work-wrap">
-                        <img class="img-responsive" src="view/img/portfolio/recent/item5.png" alt="">
+                        <img class="img-responsive" src="<?php echo SITE_PATH ?>view/img/portfolio/recent/item5.png" alt="">
                         <div class="overlay">
                             <div class="recent-work-inner">
                                 <h3><a href="#">Business theme</a></h3>
                                 <p>There are many variations of passages of Lorem Ipsum available, but the majority</p>
-                                <a class="preview" href="view/img/portfolio/full/item5.png" rel="prettyPhoto"><i class="fa fa-eye"></i> View</a>
+                                <a class="pre<?php echo SITE_PATH ?>view" href="<?php echo SITE_PATH ?>view/img/portfolio/full/item5.png" rel="prettyPhoto"><i class="fa fa-eye"></i> <?php echo SITE_PATH ?>View</a>
                             </div> 
                         </div>
                     </div>
@@ -213,12 +213,12 @@
 
                 <div class="col-xs-12 col-sm-4 col-md-3">
                     <div class="recent-work-wrap">
-                        <img class="img-responsive" src="view/img/portfolio/recent/item6.png" alt="">
+                        <img class="img-responsive" src="<?php echo SITE_PATH ?>view/img/portfolio/recent/item6.png" alt="">
                         <div class="overlay">
                             <div class="recent-work-inner">
                                 <h3><a href="#">Business theme </a></h3>
                                 <p>There are many variations of passages of Lorem Ipsum available, but the majority</p>
-                                <a class="preview" href="view/img/portfolio/full/item6.png" rel="prettyPhoto"><i class="fa fa-eye"></i> View</a>
+                                <a class="pre<?php echo SITE_PATH ?>view" href="<?php echo SITE_PATH ?>view/img/portfolio/full/item6.png" rel="prettyPhoto"><i class="fa fa-eye"></i> <?php echo SITE_PATH ?>View</a>
                             </div> 
                         </div>
                     </div>
@@ -226,12 +226,12 @@
 
                 <div class="col-xs-12 col-sm-4 col-md-3">
                     <div class="recent-work-wrap">
-                        <img class="img-responsive" src="view/img/portfolio/recent/item7.png" alt="">
+                        <img class="img-responsive" src="<?php echo SITE_PATH ?>view/img/portfolio/recent/item7.png" alt="">
                         <div class="overlay">
                             <div class="recent-work-inner">
                                 <h3><a href="#">Business theme </a></h3>
                                 <p>There are many variations of passages of Lorem Ipsum available, but the majority</p>
-                                <a class="preview" href="view/img/portfolio/full/item7.png" rel="prettyPhoto"><i class="fa fa-eye"></i> View</a>
+                                <a class="pre<?php echo SITE_PATH ?>view" href="<?php echo SITE_PATH ?>view/img/portfolio/full/item7.png" rel="prettyPhoto"><i class="fa fa-eye"></i> <?php echo SITE_PATH ?>View</a>
                             </div> 
                         </div>
                     </div>
@@ -239,12 +239,12 @@
 
                 <div class="col-xs-12 col-sm-4 col-md-3">
                     <div class="recent-work-wrap">
-                        <img class="img-responsive" src="view/img/portfolio/recent/item8.png" alt="">
+                        <img class="img-responsive" src="<?php echo SITE_PATH ?>view/img/portfolio/recent/item8.png" alt="">
                         <div class="overlay">
                             <div class="recent-work-inner">
                                 <h3><a href="#">Business theme </a></h3>
                                 <p>There are many variations of passages of Lorem Ipsum available, but the majority</p>
-                                <a class="preview" href="view/img/portfolio/full/item8.png" rel="prettyPhoto"><i class="fa fa-eye"></i> View</a>
+                                <a class="pre<?php echo SITE_PATH ?>view" href="<?php echo SITE_PATH ?>view/img/portfolio/full/item8.png" rel="prettyPhoto"><i class="fa fa-eye"></i> <?php echo SITE_PATH ?>View</a>
                             </div> 
                         </div>
                     </div>
@@ -265,7 +265,7 @@
                 <div class="col-sm-6 col-md-4">
                     <div class="media services-wrap wow fadeInDown">
                         <div class="pull-left">
-                            <img class="img-responsive" src="view/img/services/services1.png">
+                            <img class="img-responsive" src="<?php echo SITE_PATH ?>view/img/services/services1.png">
                         </div>
                         <div class="media-body">
                             <h3 class="media-heading">SEO Marketing</h3>
@@ -277,7 +277,7 @@
                 <div class="col-sm-6 col-md-4">
                     <div class="media services-wrap wow fadeInDown">
                         <div class="pull-left">
-                            <img class="img-responsive" src="view/img/services/services2.png">
+                            <img class="img-responsive" src="<?php echo SITE_PATH ?>view/img/services/services2.png">
                         </div>
                         <div class="media-body">
                             <h3 class="media-heading">SEO Marketing</h3>
@@ -289,7 +289,7 @@
                 <div class="col-sm-6 col-md-4">
                     <div class="media services-wrap wow fadeInDown">
                         <div class="pull-left">
-                            <img class="img-responsive" src="view/img/services/services3.png">
+                            <img class="img-responsive" src="<?php echo SITE_PATH ?>view/img/services/services3.png">
                         </div>
                         <div class="media-body">
                             <h3 class="media-heading">SEO Marketing</h3>
@@ -301,7 +301,7 @@
                 <div class="col-sm-6 col-md-4">
                     <div class="media services-wrap wow fadeInDown">
                         <div class="pull-left">
-                            <img class="img-responsive" src="view/img/services/services4.png">
+                            <img class="img-responsive" src="<?php echo SITE_PATH ?>view/img/services/services4.png">
                         </div>
                         <div class="media-body">
                             <h3 class="media-heading">SEO Marketing</h3>
@@ -313,7 +313,7 @@
                 <div class="col-sm-6 col-md-4">
                     <div class="media services-wrap wow fadeInDown">
                         <div class="pull-left">
-                            <img class="img-responsive" src="view/img/services/services5.png">
+                            <img class="img-responsive" src="<?php echo SITE_PATH ?>view/img/services/services5.png">
                         </div>
                         <div class="media-body">
                             <h3 class="media-heading">SEO Marketing</h3>
@@ -325,7 +325,7 @@
                 <div class="col-sm-6 col-md-4">
                     <div class="media services-wrap wow fadeInDown">
                         <div class="pull-left">
-                            <img class="img-responsive" src="view/img/services/services6.png">
+                            <img class="img-responsive" src="<?php echo SITE_PATH ?>view/img/services/services6.png">
                         </div>
                         <div class="media-body">
                             <h3 class="media-heading">SEO Marketing</h3>
@@ -403,7 +403,7 @@
                               <div class="panel-body">
                                   <div class="media accordion-inner">
                                         <div class="pull-left">
-                                            <img class="img-responsive" src="view/img/accordion1.png">
+                                            <img class="img-responsive" src="<?php echo SITE_PATH ?>view/img/accordion1.png">
                                         </div>
                                         <div class="media-body">
                                              <h4>Adipisicing elit</h4>
@@ -490,7 +490,7 @@
                                     <div class="tab-pane fade" id="tab1">
                                         <div class="media">
                                            <div class="pull-left">
-                                                <img class="img-responsive" src="view/img/tab2.png">
+                                                <img class="img-responsive" src="<?php echo SITE_PATH ?>view/img/tab2.png">
                                             </div>
                                             <div class="media-body">
                                                  <h2>Adipisicing elit</h2>
@@ -502,7 +502,7 @@
                                      <div class="tab-pane fade active in" id="tab2">
                                         <div class="media">
                                            <div class="pull-left">
-                                                <img class="img-responsive" src="view/img/tab1.png">
+                                                <img class="img-responsive" src="<?php echo SITE_PATH ?>view/img/tab1.png">
                                             </div>
                                             <div class="media-body">
                                                  <h2>Adipisicing elit</h2>
@@ -534,7 +534,7 @@
                         <h2>Testimonials</h2>
                          <div class="media testimonial-inner">
                             <div class="pull-left">
-                                <img class="img-responsive img-circle" src="view/img/testimonials1.png">
+                                <img class="img-responsive img-circle" src="<?php echo SITE_PATH ?>view/img/testimonials1.png">
                             </div>
                             <div class="media-body">
                                 <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt</p>
@@ -544,7 +544,7 @@
 
                          <div class="media testimonial-inner">
                             <div class="pull-left">
-                                <img class="img-responsive img-circle" src="view/img/testimonials1.png">
+                                <img class="img-responsive img-circle" src="<?php echo SITE_PATH ?>view/img/testimonials1.png">
                             </div>
                             <div class="media-body">
                                 <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt</p>
@@ -568,11 +568,11 @@
 
             <div class="partners">
                 <ul>
-                    <li> <a href="#"><img class="img-responsive wow fadeInDown" data-wow-duration="1000ms" data-wow-delay="300ms" src="view/img/partners/partner1.png"></a></li>
-                    <li> <a href="#"><img class="img-responsive wow fadeInDown" data-wow-duration="1000ms" data-wow-delay="600ms" src="view/img/partners/partner2.png"></a></li>
-                    <li> <a href="#"><img class="img-responsive wow fadeInDown" data-wow-duration="1000ms" data-wow-delay="900ms" src="view/img/partners/partner3.png"></a></li>
-                    <li> <a href="#"><img class="img-responsive wow fadeInDown" data-wow-duration="1000ms" data-wow-delay="1200ms" src="view/img/partners/partner4.png"></a></li>
-                    <li> <a href="#"><img class="img-responsive wow fadeInDown" data-wow-duration="1000ms" data-wow-delay="1500ms" src="view/img/partners/partner5.png"></a></li>
+                    <li> <a href="#"><img class="img-responsive wow fadeInDown" data-wow-duration="1000ms" data-wow-delay="300ms" src="<?php echo SITE_PATH ?>view/img/partners/partner1.png"></a></li>
+                    <li> <a href="#"><img class="img-responsive wow fadeInDown" data-wow-duration="1000ms" data-wow-delay="600ms" src="<?php echo SITE_PATH ?>view/img/partners/partner2.png"></a></li>
+                    <li> <a href="#"><img class="img-responsive wow fadeInDown" data-wow-duration="1000ms" data-wow-delay="900ms" src="<?php echo SITE_PATH ?>view/img/partners/partner3.png"></a></li>
+                    <li> <a href="#"><img class="img-responsive wow fadeInDown" data-wow-duration="1000ms" data-wow-delay="1200ms" src="<?php echo SITE_PATH ?>view/img/partners/partner4.png"></a></li>
+                    <li> <a href="#"><img class="img-responsive wow fadeInDown" data-wow-duration="1000ms" data-wow-delay="1500ms" src="<?php echo SITE_PATH ?>view/img/partners/partner5.png"></a></li>
                 </ul>
             </div>        
         </div><!--/.container-->

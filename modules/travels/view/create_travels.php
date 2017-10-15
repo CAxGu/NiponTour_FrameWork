@@ -19,7 +19,7 @@
                 </div>
                 <div class="col-sm-5 col-sm-offset-1">
                     <div class="form-group">
-                        <label>ID VIAJE *</label>
+                        <label>Ref. Viaje *</label>
                         <input size="15" name="idviaje" id="idviaje" type="text" maxlength="5" placeholder="ID" class="form-control" value="" required="required">
                             <div id="e_idviaje"></div>
                     </div>

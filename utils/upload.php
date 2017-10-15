@@ -26,21 +26,12 @@ function upload_files() {
             //case 4: $error .=  'No has pujat cap fitxer <br>';break; //assignarem a l'us default-avatar
         }
     }
-
-    ////////////////////////////////////////////////////////////////////////////
-    //if($_FILES['avatar']['error'] !== 0) { //Assignarem a l'us default-avatar
-        //$error .=  'Archivo no subido correctamente <br>';
-    //}
     
     ////////////////////////////////////////////////////////////////////////////
     if ($_FILES['file']['size'] > 55000 ){
         $error .=  "Large File Size <br>";
     }
 
-    ////////////////////////////////////////////////////////////////////////////
-    //if ($_FILES['avatar']['name'] === "") { //Assignarem a l'us default-avatar
-        //$error .= "No ha seleccionado ninguna imagen. Te proporcionamos un default-avatar<br>";
-    //}
 
     if ($_FILES['file']['name'] !== "") {
         ////////////////////////////////////////////////////////////////////////////
@@ -55,20 +46,10 @@ function upload_files() {
         }
         ////////////////////////////////////////////////////////////////////////////
         list($width, $height, $type, $attr) = @getimagesize($_FILES['file']['tmp_name']);
-        if ($width > 150 || $height > 150){
-            $error .=   "Maximum width and height exceeded. Please upload images below 100x100 px size <br>";
+        if ($width > 2000  || $height > 2000){
+            $error .=   "Maximum width and height exceeded. Please upload images below 1500x1500 px size <br>";
         }
     }   
-        /*
-            $image_size_info    = getimagesize($imagen); //get image size
-            if($image_size_info){
-                $image_width        = $image_size_info[0]; //image width
-                $image_height       = $image_size_info[1]; //image height
-                $image_type         = $image_size_info['mime']; //image type
-            }else{
-                die("Make sure image file is valid!");
-            }
-        */
 
     ////////////////////////////////////////////////////////////////////////////
     $upfile = MEDIA_PATH.$_FILES['avatar']['name'];

@@ -1,11 +1,11 @@
 <?php
 
-class travel_model {
+class travels_model {
     private $bll;
     static $_instance;
 
     private function __construct() {
-        $this->bll = travel_bll::getInstance();
+        $this->bll = travels_bll::getInstance();
     }
 
     public static function getInstance() {
@@ -14,8 +14,8 @@ class travel_model {
         return self::$_instance;
     }
 
-    public function create_travel($arrArgument) {
-        return $this->bll->create_travel_BLL($arrArgument);
+    public function create_travels($arrArgument) {
+        return $this->bll->create_travels_BLL($arrArgument);
     }
     
     public function obtain_countries($url){

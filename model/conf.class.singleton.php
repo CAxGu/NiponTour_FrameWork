@@ -1,9 +1,5 @@
 <?php
-	$path=$_SERVER['DOCUMENT_ROOT'].'/2ndoDAW/NiponTour/';
-    define('SITE_ROOT', $path);
-    define('MODEL_PATH',SITE_ROOT.'model/');
-  
-    class Conf {
+    class conf {
         
         private $_userdb;
         private $_passdb;
@@ -12,6 +8,7 @@
         static $_instance;
     
         private function __construct() {
+            
             $cnfg = parse_ini_file(MODEL_PATH."db.ini");
             $this->_userdb = $cnfg['user'];
             $this->_passdb = $cnfg['password'];
