@@ -59,15 +59,13 @@ function pintar_travel(data) {
               console.log(idtravel);
               $.ajax({
                 data:  idtravel, //datos que se envian a traves de ajax
-                url:   ("../../products/load_data_products/",{'loadtravel':true},{'idtravel':idtravel}), //archivo que recibe la peticion
+                url:   ("../../products/details_product/", {'idtravel':idtravel}), //archivo que recibe la peticion
                 type:  "POST", //método de envio
                 success: function(data)
                 {
-
-                    $.post('../../products/load_detail_products/');
-                   // console.log("../../products/load_data_products/",{'loadtravel':true},{'idtravel':idtravel});
+                    window.location.href='../../products/loadDetailproducts/';
+                   // $.post('../../products/loadDetailproducts/');
                    //window.location.href = '?module=products&view=detail_product';
-                   //window.location.href = '../../?module=products&function=load_data_products';
                    
                 },
                 fail: function(data){
@@ -92,11 +90,11 @@ function scroll (data){
     console.log('Totalres: '+ totalResults);
     var total_groups = totalResults/items_per_group;
     console.log('Totalgroups: '+ total_groups);
-    var redirect= ('../../products/load_products/',{'load':true});
+    //var redirect=  '../../products/load_products/',{'load':true};
    
     $.ajax({
         data:  {'group_no':track_load}, //datos que se envian a traves de ajax
-        url:   redirect, //archivo que recibe la peticion
+        url:   ('../../products/load_products/',{'load':true}), //archivo que recibe la peticion
         type:  "POST", //método de envio
         success: function()
         {
@@ -112,7 +110,7 @@ function scroll (data){
             $('.animation_image').show(); //show loading image
             
             //load data from the server using a HTTP POST request
-            $.post(redirect,{'group_no':track_load}, function(data){
+            $.post('../../products/load_products/',{'load':true , 'group_no':track_load}, function(data){
                 var json = JSON.parse(data);
                 var news = json['limitresults'];
                 //console.log(news);
@@ -131,27 +129,21 @@ function scroll (data){
     })
 };
 
-/*
-function url_amiga(url){
 
-    var SITE_PATH = 'http://' + request.getServerName() + '/2ndoDAW/NiponTour_FrameWork/'
-    var res = false;
-    var amigableson= true;
+function amigable_js(url){
+    var host= location.hostname;
+    var SITE_PATH = 'http://' + host + '/2ndoDAW/NiponTour_FrameWork/'
+     //var SITE_PATH = '../../'
+    
     var link = "";
-
-    if(amigableson){
-        url = url.split("&", url.replace("?","",url));
-        url.forEach(function(element) {
-            var aux = aux.split("=",element);
-            link += element[1]+"/";
-        });
-        
-    }else{
-        link ="index.php" + url;
-    }
-    if (res){
-        return SITE_PATH + link;
-    }
+    
+    url = url.split("&");
+    url.forEach(function(element) {
+        var aux=element.replace("?","");
+        var aux1= aux.split("=");
+          //console.log(aux1[1]);
+                link+=aux1[1]+"/";
+       });
+    
     return SITE_PATH + link;
-}
-*/
+    }

@@ -40,7 +40,7 @@ class travels_dao {
                 $visita = 1;
         }
  
-        $sql = "INSERT INTO travelss (idviaje, pais, provincia, ciudad, precio, oferta,"
+        $sql = "INSERT INTO products (referencia, pais, provincia, ciudad, precio, oferta,"
                 . " tipo, f_sal, f_lleg, avatar"
                 . " ) VALUES ('$idviaje', '$destino', '$provincia', '$ciudad', '$precio',"
                 . " '$oferta', '$tipo', '$f_sal', '$f_lleg', '$avatar')";

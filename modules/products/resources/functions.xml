@@ -9,12 +9,12 @@
         <uri>load_products</uri>
     </function>
     <function>
-        <name>load_detail_products</name>
-        <uri>load_detail_products</uri>
+        <name>loadDetailproducts</name>
+        <uri>loadDetailproducts</uri>
     </function>
     <function>
-        <name>load_data_products</name>
-        <uri>load_data_products</uri>
+        <name>loadDataproducts</name>
+        <uri>loadDataproducts</uri>
     </function>
     <function>
         <name>details_product</name>

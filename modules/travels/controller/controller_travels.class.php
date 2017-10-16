@@ -1,27 +1,28 @@
 <?php
 class controller_travels {
     function __construct() {
-        include(FUNCTIONS_TRAVELS . "functions_travels.inc.php");
-        include(UTILS . "upload.php");
+       
+        include (FUNCTIONS_TRAVELS . "functions_travels.inc.php");
+        include (UTILS . "upload.php");
         $_SESSION['module'] = "travels";
     }
 
     function form_travels() {
-        require_once(VIEW_PATH_INC . "header.php");
-        require_once(VIEW_PATH_INC . "menu.php");
+        require_once (VIEW_PATH_INC . "header.php");
+        require_once (VIEW_PATH_INC . "menu.php");
 
         loadView('modules/travels/view/', 'create_travels.php');
 
-        require_once(VIEW_PATH_INC . "footer.html");
+        require_once (VIEW_PATH_INC . "footer.html");
     }
 
     function results_travels() {
-        require_once(VIEW_PATH_INC . "header.php");
-        require_once(VIEW_PATH_INC . "menu.php");
+        require_once (VIEW_PATH_INC . "header.php");
+        require_once (VIEW_PATH_INC . "menu.php");
 
         loadView('modules/travels/view/', 'results_travels.php');
 
-        require_once(VIEW_PATH_INC . "footer.html");
+        require_once (VIEW_PATH_INC . "footer.html");
     }
 
 
@@ -34,73 +35,74 @@ class controller_travels {
 
 
     function alta_travels() {
-        echo json_encode("hola holita vecinos");
+        
         if ((isset($_POST['alta_travels_json']))){
         $jsondata = array();
         $travelsJSON = json_decode($_POST["alta_travels_json"], true);        
-        $result = validate_travel($travelsJSON);
+        $result = validate_travels($travelsJSON);
         
-        if (empty($_SESSION['result_avatar'])) {
-            $_SESSION['result_avatar'] = array('resultado' => true, 'error' => "", 'datos' => '/media/default-avatar.png');
-        }
-        $result_avatar = $_SESSION["result_avatar"];
-    
-        if (($result['resultado']) && ($result_avatar['resultado'])) {
-            $arrArgument = array(
-                'idviaje' => $result['datos']['idviaje'],
-                'destino' => $result['datos']['destino'],
-                'destino_provincia' => $result['datos']['destino_provincia'],
-                'destino_ciudad' => $result['datos']['destino_ciudad'],
-                'precio' => $result['datos']['precio'],
-                'oferta' => $result['datos']['oferta'],
-                'tipo' => $result['datos']['tipo'],
-                'f_sal' => $result['datos']['f_sal'],
-                'f_lleg' => $result['datos']['f_lleg'],
-                'avatar' => $result_avatar['datos']
-            );
-    
-            //////////////////////// INSER INTO DB
-            $arrValue=false;
-            try {
-                $arrValue = loadModel(MODEL_TRAVELS, "travels_model", "create_travels", $arrArgument);
-            } catch (Exception $e) {
-                showErrorPage(2, "ERROR - 503 BD", 'HTTP/1.0 503 Service Unavailable', 503);
+            if (empty($_SESSION['result_avatar'])) {
+                $_SESSION['result_avatar'] = array('resultado' => true, 'error' => "", 'datos' => '/media/default-avatar.png');
             }
-    
-            if ($arrValue)
-                $mensaje = "Su registro se ha efectuado correctamente, para finalizar compruebe que ha recibido un correo de validacion y siga sus instrucciones";
-            else
-                $mensaje = "No se ha podido realizar su alta. Intentelo mas tarde";
-    
-            $_SESSION['travel'] = $arrArgument;
-            $_SESSION['msje'] = $mensaje;
-            $callback = "../../travels/results_travels/";
+            $result_avatar = $_SESSION["result_avatar"];
+        
+            if (($result['resultado']) && ($result_avatar['resultado'])) {
+                $arrArgument = array(
+                    'idviaje' => $result['datos']['idviaje'],
+                    'destino' => $result['datos']['destino'],
+                    'destino_provincia' => $result['datos']['destino_provincia'],
+                    'destino_ciudad' => $result['datos']['destino_ciudad'],
+                    'precio' => $result['datos']['precio'],
+                    'oferta' => $result['datos']['oferta'],
+                    'tipo' => $result['datos']['tipo'],
+                    'f_sal' => $result['datos']['f_sal'],
+                    'f_lleg' => $result['datos']['f_lleg'],
+                    'avatar' => $result_avatar['datos']
+                );
+        
+                //////////////////////// INSER INTO DB
+                $arrValue=false;
+                try {
+                    $arrValue = loadModel(MODEL_TRAVELS, "travels_model", "create_travels", $arrArgument);
+                } catch (Exception $e) {
+                    showErrorPage(2, "ERROR - 503 BD", 'HTTP/1.0 503 Service Unavailable', 503);
+                }
+        
+                if ($arrValue)
+                    $mensaje = "Su registro se ha efectuado correctamente, para finalizar compruebe que ha recibido un correo de validacion y siga sus instrucciones";
+                else
+                    $mensaje = "No se ha podido realizar su alta. Intentelo mas tarde";
+        
+                $_SESSION['travel'] = $arrArgument;
+                $_SESSION['msje'] = $mensaje;
+                $callback = "../../travels/results_travels/";
 
-            $jsondata["success"] = true;
-            $jsondata["redirect"] = $callback;
-            echo json_encode($jsondata);
-            exit;
-        } else {
+                $jsondata["success"] = true;
+                $jsondata["redirect"] = $callback;
+                echo json_encode($jsondata);
+                exit;
+            } else {
 
-            $jsondata["success"] = false;
-            $jsondata["error"] = $result["error"];
-            $jsondata["error_avatar"] = $result_avatar["error"];
-    
-            $jsondata["success1"] = false;
-            if ($result_avatar["resultado"]) {
-                $jsondata["success1"] = true;
-                $jsondata["img_avatar"] = $result_avatar["datos"];
+                $jsondata["success"] = false;
+                $jsondata["error"] = $result["error"];
+                $jsondata["error_avatar"] = $result_avatar["error"];
+        
+                $jsondata["success1"] = false;
+                if ($result_avatar["resultado"]) {
+                    $jsondata["success1"] = true;
+                    $jsondata["img_avatar"] = $result_avatar["datos"];
+                }
+                header('HTTP/1.0 400 Bad error', true, 404);
+                echo json_encode($jsondata);
+                //exit;
             }
-            header('HTTP/1.0 400 Bad error', true, 404);
-            echo json_encode($jsondata);
-            //exit;
         }
-    }
     }
 
 
     //////////////////////////////////////////////////////////////// delete
     function delete_users(){
+
         if (isset($_POST["delete"]) && $_POST["delete"] == true) {
             $_SESSION['result_avatar'] = array();
             $result = remove_files();

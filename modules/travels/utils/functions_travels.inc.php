@@ -1,5 +1,5 @@
 <?php
-	function validate_travel($value){
+	function validate_travels($value){
         $error= array();
         $valido = true;
 		$filtro = array(

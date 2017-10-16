@@ -45,7 +45,8 @@
     }
 
 
-    function load_detail_products(){
+    function loadDetailproducts(){
+
         require_once(VIEW_PATH_INC ."header.php");
         require_once(VIEW_PATH_INC ."menu.php");
 
@@ -56,11 +57,14 @@
 
 
 
-    function load_data_products(){
+  /*  function loadDataproducts(){
+      
 
         if (isset($_POST["loadtravel"]) && ($_POST["loadtravel"]==true)) {
+            echo json_encode('pepito');
+            exit();
             
-            $idtravel = $_GET['idtravel'];
+            $idtravel = $_POST['idtravel'];
             $travelData = loadModel(MODEL_PRODUCTS, "products_model", "details_product",$idtravel);
             $_SESSION['travel']=$travelData ;
             $callback= loadView('modules/products/view/','detail_products.php');
@@ -71,7 +75,7 @@
                 header('view/inc/404.php');
             }
         }
-    }
+    }*/
 
 
 
@@ -79,10 +83,20 @@
 
         if (isset($_POST["idtravel"]) && ($_POST["idtravel"]==true)) {
             
-                $travelValue = $_SESSION['travel'];
+            $idtravel = $_POST['idtravel'];
+
+            $travelData = loadModel(MODEL_PRODUCTS, "products_model", "details_product",$idtravel);
+            $_SESSION['travel']=$travelData ;
+            //$callback= loadView('modules/products/view/','detail_products.php');
             
+              //  $travelValue = $_SESSION['travel'];
+            
+
+            echo json_encode($travelData);
+        
+
                 if($travelValue){
-                    echo json_encode ($travelValue);  
+                    echo json_encode ($travelData);  
                 }else{
                     header('view/inc/404.php');
                 }

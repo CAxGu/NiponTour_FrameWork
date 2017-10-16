@@ -1,7 +1,7 @@
 function load_travel() {
     var jqxhr = $.post("../../products/details_product/",{'idtravel':true},function (data) {
         var json = JSON.parse(data);
-        console.log(json);
+        console.log(data);
         pintar_travel(json,0);
         //alert( "success" );
     }).done(function () {
@@ -75,8 +75,26 @@ function pintar_travel(data,i) {
         var backtext = document.createTextNode('Back to List');
         backEl.appendChild(backtext);
         backEl.addEventListener("click", function() {
-          window.location.href = 'index.php?module=products&view=list_products';
+          window.location.href = amigable_js('?module=products&function=list_products');
        });
        buttonEL.appendChild(backEl);
        travelEl.appendChild(buttonEL);
 }
+
+    function amigable_js(url){
+        var host= location.hostname;
+        var SITE_PATH = 'http://' + host + '/2ndoDAW/NiponTour_FrameWork/'
+        //var SITE_PATH = '../../'
+        
+        var link = "";
+        
+        url = url.split("&");
+        url.forEach(function(element) {
+            var aux=element.replace("?","");
+            var aux1= aux.split("=");
+            //console.log(aux1[1]);
+                    link+=aux1[1]+"/";
+        });
+        
+        return SITE_PATH + link;
+        }
