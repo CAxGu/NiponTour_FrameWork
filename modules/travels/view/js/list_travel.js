@@ -1,8 +1,7 @@
 function load_travels() {
-    var jqxhr = $.post("../../travels/load_travels/",{'load':true}, function (data) {
+    var jqxhr = $.POST("../../travels/load_travels/",{'load':true}, function (data) {
         var json = JSON.parse(data);
-        //console.log(json);
-        //console.log(data);
+        console.log(json);
         pintar_travel(json);
         //alert( "success" );
     }).done(function () {
@@ -75,7 +74,7 @@ function pintar_travel(data) {
     //console.log(cad);
     //var cad = cad.toLowerCase();
     var img = document.createElement("div");
-    var html = '<img src="../../' + cad + '" height="150" width="250"> ';
+    var html = '<img src="' + cad + '" height="75" width="75"> ';
     img.innerHTML = html;
     //alert(html);
 

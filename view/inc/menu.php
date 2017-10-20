@@ -49,6 +49,12 @@
                               else
                                  echo 'deactivate';
                         ?>"><a href="<?php amigable('?module=main');?>">Home</a></li>
+                        <li class=" 
+                        <?php if($_GET['module'] === 'about-us')
+                                 echo'active';
+                              else
+                                 echo 'deactivate';
+                        ?>"><a href="index.php?module=about-us">About Us</a></li>
                         <li class="
                         <?php if($_GET['module'] === 'products')
                                  echo'active';
@@ -62,11 +68,52 @@
                                  echo 'deactivate';
                         ?>"><a href="<?php amigable('?module=travels&function=form_travels'); ?>">Travels</a></li>
                         <li class="
-                        <?php if($_GET['module'] === 'contact')
+                        <?php if($_GET['module'] === 'portfolio')
                                  echo'active';
                               else
                                  echo 'deactivate';
-                        ?>"><a href="<?php amigable('?module=contact&function=view_contact'); ?>">Contact</a></li>                        
+                        ?>"><a href="index.php?module=portfolio">Portfolio</a></li>
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Pages <i class="fa fa-angle-down"></i></a>
+                            <ul class="dropdown-menu">
+                                <li class="
+                        <?php if($_GET['module'] === 'blog-item')
+                                 echo'active';
+                              else
+                                 echo 'deactivate';
+                        ?>"><a href="index.php?module=blog-item">Blog Single</a></li>
+                                <li class="
+                        <?php if($_GET['module'] === 'pricing')
+                                 echo'active';
+                              else
+                                 echo 'deactivate';
+                        ?>"><a href="index.php?module=pricing">Pricing</a></li>
+                                <li class="
+                        <?php if($_GET['module'] === '404')
+                                 echo'active';
+                              else
+                                 echo 'deactivate';
+                        ?>"><a href="index.php?module=404">404</a></li>
+                                <li class="
+                        <?php if($_GET['module'] === 'shortcodes')
+                                 echo'active';
+                              else
+                                 echo 'deactivate';
+                        ?>"><a href="index.php?module=shortcodes">Shortcodes</a></li>
+                            </ul>
+                        </li>
+                        <li class="
+                        <?php if($_GET['module'] === 'blog')
+                                 echo'active';
+                              else
+                                 echo 'deactivate';
+                        ?>"><a href="index.php?module=blog">Blog</a></li> 
+                        <li class="
+                        <?php if($_GET['module'] === 'contact-us')
+                                 echo'active';
+                              else
+                                 echo 'deactivate';
+                        ?>"><a href="index.php?module=contact-us">Contact</a></li>                        
                     </ul>
                 </div>
             </div><!--/.container-->

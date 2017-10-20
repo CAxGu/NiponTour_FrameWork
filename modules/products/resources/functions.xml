@@ -13,11 +13,11 @@
         <uri>loadDetailproducts</uri>
     </function>
     <function>
-        <name>id_details_products</name>
-        <uri>id_details_products</uri>
+        <name>loadDataproducts</name>
+        <uri>loadDataproducts</uri>
     </function>
     <function>
-        <name>details_products</name>
-        <uri>details_products</uri>
+        <name>details_product</name>
+        <uri>details_product</uri>
     </function>
 </functions>

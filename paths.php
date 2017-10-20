@@ -36,11 +36,6 @@ define('RESOURCES', SITE_ROOT . 'resources/');
 define('MEDIA_PATH', SITE_ROOT . 'media/');
 //utils
 define('UTILS', SITE_ROOT . 'utils/');
-//libs
-define('LIBS',SITE_ROOT.'libs/');
-//classes
-define('CLASSES',SITE_ROOT.'classes/');
-
 
 //model travels
 define('FUNCTIONS_TRAVELS', SITE_ROOT . 'modules/travels/utils/');
@@ -59,15 +54,6 @@ define('MODEL_PATH_PRODUCTS', SITE_ROOT . 'modules/products/model/');
 define('DAO_PRODUCTS', SITE_ROOT . 'modules/products/model/DAO/');
 define('BLL_PRODUCTS', SITE_ROOT . 'modules/products/model/BLL/');
 define('MODEL_PRODUCTS', SITE_ROOT . 'modules/products/model/model/');
-
-
-//model contact
-define('CONTACT_JS_PATH', SITE_PATH . 'modules/contact/view/js/');
-define('CONTACT_CSS_PATH', SITE_PATH . 'modules/contact/view/css/');
-define('CONTACT_LIB_PATH', SITE_PATH . 'modules/contact/view/lib/');
-define('CONTACT_IMG_PATH', SITE_PATH . 'modules/contact/view/img/'); 
-define('CONTACT_VIEW_PATH', 'modules/contact/view/');
- 
 
 
 //amigables

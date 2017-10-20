@@ -49,27 +49,21 @@ function pintar_travel(data) {
           priceEl.appendChild(pricetext);
           liEl.appendChild(priceEl);
 
-          var separationEl = document.createElement("hr");
-          liEl.appendChild(separationEl);
+        var separationEl = document.createElement("hr");
+        liEl.appendChild(separationEl);
 
           travelsEl.appendChild(liEl);
 
           ciudadEl.addEventListener("click", function() {
-              //var idtravel = travelItem.id;
-             // console.log(idtravel);
-
-            $.post('../id_details_products/',{'loadproduct':true,'id':travelItem.id}).done(function() {
-                //alert("ajax" + data);
-                window.location.href='../loadDetailproducts/';
-            });
-         /*    $.ajax({
-                data:  {'id':travelItem.id}, //datos que se envian a traves de ajax
-                url:   ('../id_details_products/',{'loadproduct':true}), //archivo que recibe la peticion
-                type:  'POST', //método de envio
+              var idtravel = travelItem.id;
+              console.log(idtravel);
+              $.ajax({
+                data:  idtravel, //datos que se envian a traves de ajax
+                url:   ("../../products/details_product/", {'idtravel':idtravel}), //archivo que recibe la peticion
+                type:  "POST", //método de envio
                 success: function(data)
                 {
-                    alert("ajax success");
-                    window.location.href='../loadDetailproducts/';
+                    window.location.href='../../products/loadDetailproducts/';
                    // $.post('../../products/loadDetailproducts/');
                    //window.location.href = '?module=products&view=detail_product';
                    
@@ -78,7 +72,7 @@ function pintar_travel(data) {
                     window.location.href = 'view/inc/404.php';
                 }
 
-             });   */
+        });
      
           });
         });

@@ -28,7 +28,7 @@ function upload_files() {
     }
     
     ////////////////////////////////////////////////////////////////////////////
-    if ($_FILES['file']['size'] > 5500000 ){
+    if ($_FILES['file']['size'] > 55000 ){
         $error .=  "Large File Size <br>";
     }
 
