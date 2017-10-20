@@ -1,55 +1,3 @@
-//Function to validate data user
-function validate_country(country) {
-    if (country == null) {
-        return false;
-    }
-    if (country.length == 0) {
-        return false;
-    }
-    if (country === 'Select Country') {
-        return false;
-    }
-    if (country.length > 0) {
-        var regexp = /^[a-zA-Z_]*$/;
-        return regexp.test(country);
-    }
-    return false;
-}
-function validate_province(province) {
-    if (province == null) {
-        return 'default_province';
-    }
-    if (province.length == 0) {
-        return 'default_province';
-    }
-    if (province === 'Select Province') {
-        return false;
-    }
-    if (province.length > 0) {
-        var regexp = /^[a-zA-Z0-9, ]*$/;
-        return regexp.test(province);
-    }
-    return false;
-}
-function validate_town(town) {
-    if (town == null) {
-        return 'default_town';
-    }
-    if (town.length == 0) {
-        return 'default_town';
-    }
-    if (town === 'Select Town') {
-        //return 'default_poblacion';
-        return false;
-    }
-    if (town.length > 0) {
-        var regexp = /^[a-zA-Z/, -'()]*$/;
-        return regexp.test(town);
-    }
-    return false;
-}
-
-
 //Crear un plugin
 jQuery.fn.fill_or_clean = function () {
     this.each(function () {
@@ -147,9 +95,9 @@ $(document).ready(function () {
                 //alert(response.user);
                 if (response.travel === "") {
                     $("#idviaje").val('');
-                    $("#destino").val('');
-                    $("#destino_provincia").val(''); //'Seleccione Provincia'
-                    $("#destino_ciudad").val('');
+                    $("#destino").val('Seleccione Pais');
+                    $("#destino_provincia").val('Seleccione Provincia'); //'Seleccione Provincia'
+                    $("#destino_ciudad").val('Seleccione Ciudad');
                     $("#precio").val('');
                     $("#f_sal").val('');
                     $("#f_lleg").val('');
@@ -184,7 +132,7 @@ $(document).ready(function () {
         url: "../../travels/upload_travels/",
         params:{'upload':true},
         addRemoveLinks: true,
-        maxFileSize: 1000,
+        maxFileSize: 3000,
         dictResponseError: "Ha ocurrido un error en el server",
         acceptedFiles: 'image/*,.jpeg,.jpg,.png,.gif,.JPEG,.JPG,.PNG,.GIF,.rar,application/pdf,.psd',
         init: function () {
@@ -209,7 +157,7 @@ $(document).ready(function () {
             var name = file.name;
             $.ajax({
                 type: "POST",
-                url: amigable_js('?module=travels&function=delete_travels'),/* "../../travels/delete_travels/", */
+                url:  "../../travels/delete_travels/",
                 data: {"filename":name,"delete":true},
                 success: function (data) {
                     $("#progress").hide();
@@ -248,35 +196,6 @@ $(document).ready(function () {
     
     $("#idviaje").keyup(function () {
         if ($(this).val() != "" && precio_ref.test($(this).val())) {
-            $(".error").fadeOut();
-            return false;
-        }
-    });
-
-    $("#destino").click(function () {
-        if (validate_country($(this).val())) {
-            $(".error").fadeOut();
-            return false;
-        }
-    });
-
-    $("#destino").click(function () {
-        if (validate_country($(this).val())) {
-            $(".error").fadeOut();
-            return false;
-        }
-    });
-
-    $("#destino_provincia").click(function () {
-        if (validate_province($(this).val())) {
-            $(".error").fadeOut();
-            return false;
-        }
-    });
-
-
-    $("#destino_ciudad").click(function () {
-        if (validate_province($(this).val())) {
             $(".error").fadeOut();
             return false;
         }
@@ -376,7 +295,6 @@ function validate_travels() {
         return false;
     }
 
-/* 
     if ($("#destino").val() === "" || $("#destino").val() === "Selecciona Pais" || $("#destino").val() === null) {
         $("#destino").focus().after("<span class='error'>Seleccione un Pais</span>");
         return false;
@@ -390,22 +308,7 @@ function validate_travels() {
     else if ($("#destino_ciudad").val() === "" || $("#destino_ciudad").val() === "Seleccione Ciudad") {
         $("#destino_ciudad").focus().after("<span class='error'>Debe seleccionar una ciudad</span>");
         return false;
-    } */
-
-    if ((validate_country) === false) {
-        $("#destino").focus().after("<span class='error'>Seleccione un Pais</span>");
-        return false;
-    }
-
-    else if ((validate_province)=== false) {
-        $("#destino_provincia").focus().after("<span class='error'>Debe seleccionar una provincia</span>");
-        return false;
-    }
-
-    else if ((validate_town)=== false) {
-        $("#destino_ciudad").focus().after("<span class='error'>Debe seleccionar una ciudad</span>");
-        return false;
-    }
+    } 
 
     else if ($("#precio").val() == "" || $("#precio").val() == "0") {
         $("#precio").focus().after("<span class='error'>Introduce un precio</span>");
@@ -460,7 +363,7 @@ function validate_travels() {
             
         var data_travels_JSON = JSON.stringify(data);
         //console.log(data_travels_JSON);
-        $.post(amigable_js('?module=travels&function=alta_travels'),/* '../../travels/alta_travels/', */
+        $.post('../../travels/alta_travels/',
                 {alta_travels_json:data_travels_JSON},
         function (response) {
            // console.log("0"+ response);
@@ -544,7 +447,7 @@ function validate_travels() {
 
 
 function load_countries_v2(cad, post_data) {
-    $.post(cad, post_data, function(data) {
+    $.post(cad,post_data, function(data) {
       $("#destino").empty();
       $("#destino").append('<option value="" selected="selected">Seleccione Pais</option>');
 
@@ -553,22 +456,20 @@ function load_countries_v2(cad, post_data) {
       });
     },"json")
     .fail(function() {
-        console.log(cad);
-        console.log(post_data);
         alert( "error load_countries" );
     });
 }
 
 function load_countries_v1() {
-    var url = amigable_js('?module=travels&function=load_countries_travels');
-   /*  $.post("../../travels/load_countries_travels/",{'load_country':true}, */
-   $.post(url,{'load_country':true},
+   // var url = amigable_js('?module=travels&function=load_countries_travels');
+     $.post("../../travels/load_countries_travels/",{'load_country':true}, 
+  // $.post(url,{'load_country':true},
         function( response ) {
            // console.log(response);
             if(response === 'error'){
-                load_countries_v2("../../resources/ListOfCountryNamesByName.json");
-            }else{            
-                load_countries_v2(url,{'load_country':true}); //oorsprong.org
+               load_countries_v2("../../resources/ListOfCountryNamesByName.json");
+            }else{           
+                load_countries_v2('../../travels/load_countries_travels/'); //oorsprong.org
             }
     })
     .fail(function(response) {
@@ -619,7 +520,7 @@ function load_provinces_v1() { //provinciasypoblaciones.xml - xpath
 function load_cities_v2(prov) {
     $.get("../../resources/provinciasypoblaciones.xml", function (xml) {
 		$("#destino_ciudad").empty();
-	    $("#destino_ciudad").append('<option value="" selected="selected">Select city</option>');
+	    $("#destino_ciudad").append('<option value="" selected="selected">Seleccione Ciudad</option>');
 
 		$(xml).find('provincia[id=' + prov + ']').each(function(){
     		$(this).find('localidad').each(function(){
@@ -643,7 +544,7 @@ function load_cities_v1(prov) { //provinciasypoblaciones.xml - xpath
 		//alert(poblaciones[0].poblacion);
 
 		$("#destino_ciudad").empty();
-	    $("#destino_ciudad").append('<option value="" selected="selected">Select city</option>');
+	    $("#destino_ciudad").append('<option value="" selected="selected">Seleccione Ciudad</option>');
 
         if(cities === 'error'){
             load_cities_v2(prov);
@@ -661,7 +562,7 @@ function load_cities_v1(prov) { //provinciasypoblaciones.xml - xpath
 function amigable_js(url){
 var host= location.hostname;
 //var SITE_PATH = 'http://' + host + '/2ndoDAW/NiponTour_FrameWork/'
- var SITE_PATH = '../../'
+ var SITE_PATH = '../'
 
 var link = "";
 
@@ -675,31 +576,4 @@ url.forEach(function(element) {
 
 return SITE_PATH + link;
 }
-
-/*function url_amiga(url){
-        
-        var host= location.hostname;
-        var SITE_PATH = 'http://' + host + '/2ndoDAW/NiponTour_FrameWork/'
-        var res = false;
-        var amigableson= true;
-        var link = "";
-    
-        if(amigableson){
-            url = url.split("&");
-            url.forEach(function(element) {
-                let aux= element.replace("?","");
-                let aux1= aux.split("=");
-                var link = "";
-                link+=aux1[1]+"/";
-            });
-            
-        }else{
-            link ="index.php" + url;
-        }
-        if (res){
-            return SITE_PATH + link;
-        }
-        return SITE_PATH + link;
-    }
-*/
    

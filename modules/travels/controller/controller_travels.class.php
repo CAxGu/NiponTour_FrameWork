@@ -31,11 +31,12 @@ class controller_travels {
             $result_avatar = upload_files();
             $_SESSION['result_avatar'] = $result_avatar;
             echo debugPHP($_SESSION['result_avatar']);
+        }
     }
 
 
     function alta_travels() {
-        
+
         if ((isset($_POST['alta_travels_json']))){
         $jsondata = array();
         $travelsJSON = json_decode($_POST["alta_travels_json"], true);        
@@ -67,7 +68,7 @@ class controller_travels {
                 } catch (Exception $e) {
                     showErrorPage(2, "ERROR - 503 BD", 'HTTP/1.0 503 Service Unavailable', 503);
                 }
-        
+
                 if ($arrValue)
                     $mensaje = "Su registro se ha efectuado correctamente, para finalizar compruebe que ha recibido un correo de validacion y siga sus instrucciones";
                 else
@@ -101,9 +102,9 @@ class controller_travels {
 
 
     //////////////////////////////////////////////////////////////// delete
-    function delete_users(){
+    function delete_travels(){
 
-        if (isset($_POST["delete"]) && $_POST["delete"] == true) {
+       if (isset($_POST["delete"]) && $_POST["delete"] == true) {
             $_SESSION['result_avatar'] = array();
             $result = remove_files();
             if ($result === true) {
@@ -118,6 +119,7 @@ class controller_travels {
     //////////////////////////////////////////////////////////////// load
 
     function load_travels(){
+
         if (isset($_POST["load"]) && $_POST["load"] == true) {
             $jsondata = array();
             if (isset($_SESSION['travel'])) {
@@ -137,6 +139,7 @@ class controller_travels {
     /////////////////////////////////////////////////// load_data
 
     function load_data_travels(){
+        
         if ((isset($_POST["load_data"])) && ($_POST["load_data"] == true)) {
             $jsondata = array();
             if (isset($_SESSION['travel'])) {
@@ -154,7 +157,8 @@ class controller_travels {
     /////////////////////////////////////////////////// load_country
     function load_countries_travels(){
 
-        if ((isset($_POST["load_country"])) && ($_POST["load_country"] == true)) {
+        //if ((isset($_POST["load_country"])) && ($_POST["load_country"] == true)) {
+       // if (isset($_POST["load_country"])) {
             $json = array();
             $url = 'http://www.oorsprong.org/websamples.countryinfo/CountryInfoService.wso/ListOfCountryNamesByName/JSON';
         
@@ -174,7 +178,7 @@ class controller_travels {
                 exit;
             }
         }
-    }
+    //}
 
 
     /////////////////////////////////////////////////// load_provinces
@@ -226,5 +230,4 @@ class controller_travels {
         }
     }
 
-}
 }
