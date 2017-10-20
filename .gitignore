@@ -1,0 +1,8 @@
+# ignorar ficheros .ini
+
+*.ini
+
+#ignorar class con api keys mailgun
+
+
+/class/email/*

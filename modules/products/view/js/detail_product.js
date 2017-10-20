@@ -1,7 +1,8 @@
 function load_travel() {
-    var jqxhr = $.post("../../products/details_product/",{'idtravel':true},function (data) {
+    var jqxhr = $.post("../../products/details_products/",{'idproduct':true},function (data) {
         var json = JSON.parse(data);
-        console.log(data);
+        //console.log(json,0);
+        //console.log(data);
         pintar_travel(json,0);
         //alert( "success" );
     }).done(function () {
