@@ -1,71 +1,30 @@
 <?php
-    function enviar_email($arr) {
-        $html = '';
-        $subject = '';
-        $body = '';
-        $ruta = '';
-        $return = '';
-        
-        switch ($arr['type']) {
-            case 'alta':
-                $subject = 'Tu Alta en Nipon_Tour';
-                $ruta = "<a href='" . amigable("?module=login&function=activar&aux=A" . $arr['token'], true) . "'>aqu&iacute;</a>";
-                $body = 'Gracias por unirte a nuestra aplicaci&oacute;n<br> Para finalizar el registro, pulsa ' . $ruta;
-                break;
-    
-            case 'modificacion':
-                $subject = 'Tu Nuevo Password en Nipon_Tour<br>';
-                $ruta = '<a href="' . amigable("?module=login&function=activar&aux=F" . $arr['token'], true) . '">aqu&iacute;</a>';
-                $body = 'Para recordar tu password pulsa ' . $ruta;
-                break;
-                
-            case 'contact':
-                $subject = 'Tu Petici&oacute;n a Nipon_Tour ha sido enviada<br>';
-               // $ruta = '<a href=' . 'https://php-mvc-oo-yomogan.c9.io/3_Framework/4_framework_contact/'. '>aqu&iacute;</a>';
-                $ruta = '<a href=' . SITE_PATH . '>aqu&iacute;</a>';               
-                $body = 'Para visitar nuestra web, pulsa ' . $ruta;
-                break;
-    
-            case 'admin':
-                $subject = $arr['inputSubject'];
-                $body = 'inputName: ' . $arr['inputName']. '<br>' .
-                'inputEmail: ' . $arr['inputEmail']. '<br>' .
-                'inputSubject: ' . $arr['inputSubject']. '<br>' .
-                'inputMessage: ' . $arr['inputMessage'];
-                break;
-        }
-        
-        $html .= "<html>";
-        $html .= "<body>";
-	       $html .= "<h4>". $subject ."</h4>";
-	       $html .= $body;
-	       $html .= "<br><br>";
-	       $html .= "<p>Sent by NIPON_TOUR</p>";
-		$html .= "</body>";
-		$html .= "</html>";
+  function send_mailgun($email){//name,email,subject,message
 
-        set_error_handler('ErrorHandler');
-        try{
-            $mail = email::getInstance();
-            $mail->name = $arr['inputName'];
-            if ($arr['type'] === 'admin')
-                $mail->address = 'nipontourpruebas@gmail.com';
-            else
-                $mail->address = $arr['inputEmail'];
-            $mail->subject = $subject;
-            $mail->body = $html;
-        } catch (Exception $e) {
-			$return = 0;
-		}
-		restore_error_handler();
+   $config = array();
+   $config['api_key'] = "key-7627d6ac6cc9ac85ede68822acd6ee28"; //API Key
+   $config['api_url'] = "https://api.mailgun.net/v2/sandboxc43dabcf6b5143449d65956b31081985.mailgun.org/messages"; //API Base URL
 
-        /*
-        if ($mail->enviar()) {
-            $return = 1;
-        } else {
-            $return = 0;
-        }
-        */
-        $return = $mail->enviar();
-        return $return;
-    }
+   $message = array();
+   $message['from'] = $email["inputEmail"];
+   $message['to'] =  $email["inputEmail"];
+   $message['h:Reply-To'] = "nipontourpruebas@gmail.com";
+   $message['subject'] = $email["inputSubject"];
+   $message['html'] = 'Hello ' .  $email["inputName"] . ', This is your message: <br><br>' .  $email["inputMessage"];
+
+
+   $ch = curl_init();
+   curl_setopt($ch, CURLOPT_URL, $config['api_url']);
+   curl_setopt($ch, CURLOPT_HTTPAUTH, CURLAUTH_BASIC);
+   curl_setopt($ch, CURLOPT_USERPWD, "api:{$config['api_key']}");
+   curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+   curl_setopt($ch, CURLOPT_CONNECTTIMEOUT, 10);
+   curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, 0);
+   curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, 0);
+   curl_setopt($ch, CURLOPT_POST, true);
+   curl_setopt($ch, CURLOPT_POSTFIELDS,$message);
+   $result = curl_exec($ch);
+   curl_close($ch);
+   return $result;
+ }
+?>

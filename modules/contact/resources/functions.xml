@@ -5,7 +5,7 @@
         <uri>view_contact</uri>
     </function>
     <function>
-        <name>process_contact</name>
-        <uri>process_contact</uri>
+        <name>sendContact</name>
+        <uri>sendContact</uri>
     </function>
 </functions>
