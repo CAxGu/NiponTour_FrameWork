@@ -18,14 +18,15 @@ USE `NiponTour`;
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
--- Table structure for table `travels`
+-- Table structure for table `products`
 --
 
-DROP TABLE IF EXISTS `travels`;
+DROP TABLE IF EXISTS `products`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `travels` (
-  `idviaje` varchar(255) NOT NULL,
+CREATE TABLE `products` (
+  `id` mediumint(8) unsigned NOT NULL AUTO_INCREMENT,
+  `referencia` varchar(255) NOT NULL,
   `pais` varchar(255) DEFAULT NULL,
   `provincia` varchar(255) DEFAULT NULL,
   `ciudad` varchar(255) DEFAULT NULL,
@@ -35,17 +36,19 @@ CREATE TABLE `travels` (
   `f_sal` varchar(255) DEFAULT NULL,
   `f_lleg` varchar(255) DEFAULT NULL,
   `avatar` varchar(255) DEFAULT NULL,
-  PRIMARY KEY (`idviaje`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `referencia_UNIQUE` (`referencia`)
+) ENGINE=InnoDB AUTO_INCREMENT=42 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `travels`
+-- Dumping data for table `products`
 --
 
-LOCK TABLES `travels` WRITE;
-/*!40000 ALTER TABLE `travels` DISABLE KEYS */;
-/*!40000 ALTER TABLE `travels` ENABLE KEYS */;
+LOCK TABLES `products` WRITE;
+/*!40000 ALTER TABLE `products` DISABLE KEYS */;
+INSERT INTO `products` VALUES (34,'J001','JP','default_province','default_city','325','No','Array','10-22-2017','10-31-2017','media/187042066-paisaje1.jpg'),(35,'J002','JP','default_province','default_city','200','No','Array','10-22-2017','10-26-2017','media/2134183713-paisaje2.jpg'),(36,'I001','IE','default_province','default_city','150','No','Array','10-20-2017','10-23-2017','media/570196717-paisaje5.jpg'),(37,'E001','ES','15','Santiago De Compostela','300','No','Array','10-21-2017','10-28-2017','media/1163084550-santiago.jpg'),(38,'E002','ES','46','Valencia','135','No','Array','10-21-2017','10-22-2017','media/853690249-valencia.jpg'),(40,'E003','ES','32','Ourense','100','No','Array','10-22-2017','10-22-2017','media/1639862169-ourense.jpg'),(41,'E004','ES','15','CoruÃ±a, A','230','No','Array','10-22-2017','10-22-2017','media/1383894087-coruÃ±a.jpg');
+/*!40000 ALTER TABLE `products` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
@@ -57,4 +60,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2017-09-30 16:02:26
+-- Dump completed on 2017-10-27 11:31:40
